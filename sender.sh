@@ -22,7 +22,7 @@ www.graylife.co    (____/  ${lightgreen} SMTP SENDER FOR LINUX${white}\n
 }
 BANNERS
 OPTIONS () {
-printf "${lightgreen}[>]${white} SMTP SERVERS                 : "
+printf "${lightgreen}[>]${white} SMTP HOST                    : "
 read smtp
 printf "${lightgreen}[>]${white} PORT                         : "
 read port
