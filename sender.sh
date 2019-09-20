@@ -24,11 +24,13 @@ BANNERS
 OPTIONS () {
 printf "${lightgreen}[>]${white} SMTP SERVERS                 : "
 read smtp
+printf "${lightgreen}[>]${white} PORT                         : "
+read port
 printf "${lightgreen}[>]${white} USERNAME                     : "
 read user
 printf "${lightgreen}[>]${white} PASSWORD                     : "
 read password
-printf "${lightgreen}[>]${white} TLS/SSL (LEAVE IF BLANK)     : "
+printf "${lightgreen}[>]${white} TLS/SSL (LEAVE IF NONE)      : "
 read ssltls
 printf "${lightgreen}[>]${white} MAIL FROM                    : "
 read mailfrom
@@ -38,11 +40,11 @@ read mailto
 OPTIONS
 SWAKS_SEND () {
 printf "${lightgreen}############## SEND SMTP USING SWAKS ##############${white}\n"
-swaks --to $mailto --from $mailfrom -s $smtp $ssltls -au $user -ap $password
+swaks --to $mailto --from $mailfrom -s $smtp:$port $ssltls --body "[LIVE] SMTP SENDER BY GRAYLIFE.CO" -au $user -ap $password
 }
 SWAKS_SEND
 RETURNS () {
-printf "${white}WANT TRY OTHER SMTP ? (${lightgreen}Y/${red}N${white}) : "
+printf "${white}WANT TRY OTHER SMTP ? (${lightgreen}Y${white}/${red}N${white}) : "
 read return_smtp
 if [[ $return_smtp == "Y" ]]; then
 clear
