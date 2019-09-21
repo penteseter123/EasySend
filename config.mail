@@ -1,0 +1,6 @@
+{  
+   "mail_to":"receipter@example.com",
+   "mail_from":"sender@example.com",
+   "mail_body":"This Is An Email Test",
+   "mail_head":"Subject: This Is An Email Test"
+}
