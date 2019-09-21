@@ -17,7 +17,7 @@ printf "${white}
 |  ___) (____ |/___) | | |   \____ \| ___ |  _ \ / _  |
 | |_____/ ___ |___ | |_| |   _____) ) ____| | | ( (_| |
 |_______)_____(___/ \__  |  (______/|_____)_| |_|\____|
-www.graylife.co    (____/  ${lightgreen} SMTP SENDER FOR LINUX${white}\n
+ www.graylife.co   (____/  ${lightgreen}  SMTP SENDER FOR LINUX${white}\n
 "
 }
 BANNERS
