@@ -40,7 +40,7 @@ read mailto
 OPTIONS
 SWAKS_SEND () {
 printf "${lightgreen}############## SEND SMTP USING SWAKS ##############${white}\n"
-swaks --to $mailto --from $mailfrom -s $smtp:$port $ssltls --body "[LIVE] SMTP SENDER BY GRAYLIFE.CO" -au $user -ap $password
+swaks --timeout 15s --to $mailto --from $mailfrom -s $smtp:$port $ssltls --body "[LIVE] SMTP SENDER BY GRAYLIFE.CO" -au $user -ap $password
 }
 SWAKS_SEND
 RETURNS () {
