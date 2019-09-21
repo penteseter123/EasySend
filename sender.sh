@@ -32,18 +32,19 @@ printf "${lightgreen}[>]${white} PASSWORD                     : "
 read password
 printf "${lightgreen}[>]${white} TLS/SSL (LEAVE IF NONE)      : "
 read ssltls
-printf "${lightgreen}[>]${white} MAIL FROM                    : "
-read mailfrom
-printf "${lightgreen}[>]${white} SEND TO                      : "
-read mailto
 }
+mailbody=$(cat body.mail)
+mailfrom=$(cat from.mail)
+mailto=$(cat to.mail)
+subject=$(cat subject.mail)
 OPTIONS
 SWAKS_SEND () {
 printf "${lightgreen}############## SEND SMTP USING SWAKS ##############${white}\n"
-swaks --timeout 15s --to $mailto --from $mailfrom -s $smtp:$port $ssltls --body "[LIVE] SMTP SENDER BY GRAYLIFE.CO" -au $user -ap $password
+swaks --timeout 15s --to $mailto --from $mailfrom --header "$subject" -s $smtp:$port $ssltls --body "$mailbody" -au $user -ap $password
 }
 SWAKS_SEND
 RETURNS () {
+printf "${lightgreen}############## FINISH TESTING ##############${white}\n"
 printf "${white}WANT TRY OTHER SMTP ? (${lightgreen}Y${white}/${red}N${white}) : "
 read return_smtp
 if [[ $return_smtp == "Y" ]]; then
