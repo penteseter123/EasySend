@@ -33,10 +33,10 @@ read password
 printf "${lightgreen}[>]${white} TLS/SSL (LEAVE IF NONE)      : "
 read ssltls
 }
-mailbody=$(cat body.mail)
-mailfrom=$(cat from.mail)
-mailto=$(cat to.mail)
-subject=$(cat subject.mail)
+mailbody=$(cat config.mail | grep -Po 'mail_body":"\K.*?(?=")')
+mailfrom=$(cat config.mail | grep -Po 'mail_from":"\K.*?(?=")')
+mailto=$(cat config.mail | grep -Po 'mail_to":"\K.*?(?=")')
+subject=$(cat config.mail | grep -Po 'mail_head":"\K.*?(?=")')
 OPTIONS
 SWAKS_SEND () {
 printf "${lightgreen}############## SEND SMTP USING SWAKS ##############${white}\n"
